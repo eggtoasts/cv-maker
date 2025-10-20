@@ -1,42 +1,106 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0px;
+  padding: 0px;
+  /* border: 0.5px solid red; */
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.main-content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px 1.5fr 4fr;
+}
+
+.main-content > div {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Resume */
+
+.resume {
+  --gen-color: #becccc97;
+  --resume-color: #becccc4e;
+
+  height: 800px;
+  width: 600px;
+  border: 1px solid black;
+
+  box-shadow: 4px 4px 2px 1px rgba(196, 196, 196, 0.217);
+}
+
+.resume > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.section-title:not(.school) {
+  margin-top: 10px;
+}
+
+/* Gen */
+
+.general {
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gen-color);
+}
+
+/* Card */
+
+.card,
+.skills-container {
+  align-self: center;
+  width: 90%;
+}
+
+.section-title {
   text-align: center;
+  background-color: var(--resume-color);
+  font-weight: 500;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.sub-info {
+  display: flex;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section-sub-info {
+  display: flex;
+  gap: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.section-sub-info *:last-child {
+  margin-left: auto;
 }
 
-.card {
-  padding: 2em;
+/* School */
+
+.title {
+  font-weight: 650;
 }
 
-.read-the-docs {
-  color: #888;
+.section-sub-info:not(.main, .gen) {
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* Work */
+
+.bullet-item::before {
+  content: "- ";
+}
+
+/* Skill */
+
+.skills-container {
+  display: flex;
+  flex-direction: row;
 }
