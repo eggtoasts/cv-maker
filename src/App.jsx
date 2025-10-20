@@ -8,7 +8,6 @@ function MainContent() {
   return (
     <>
       <div class="main-content">
-        <Options />
         <Sidebar />
         <ResumeSection />
       </div>
@@ -16,17 +15,13 @@ function MainContent() {
   );
 }
 
-function Options() {
-  return <div class="options"></div>;
-}
-
 function GeneralInfo() {
   return (
     <div class="general section">
       <h1>Full Name</h1>
       <div class="section-sub-info gen">
+        <h3>PhoneNumber</h3>
         <h3>Email</h3>
-        <h3>Phone Number</h3>
         <h3>Address</h3>
       </div>
     </div>
@@ -93,12 +88,8 @@ function WorkInfo() {
   );
 }
 
-function SkillCard() {
-  return (
-    <div class="skill-item">
-      <div class="skill">C++</div>
-    </div>
-  );
+function SkillItem() {
+  return <div class="skill-item">C++</div>;
 }
 
 function SkillInfo() {
@@ -106,8 +97,8 @@ function SkillInfo() {
     <div class="section skill">
       <div class="section-title">Skills</div>
       <div class="skills-container">
-        <SkillCard />
-        <SkillCard />
+        <SkillItem />
+        <SkillItem />
       </div>
     </div>
   );
@@ -133,7 +124,46 @@ function ResumeSection() {
 }
 
 function Sidebar() {
-  return <div class="sidebar"></div>;
+  return (
+    <div class="sidebar">
+      <div class="options">
+        <button class="main"> </button>
+        <button class="settings"></button>
+      </div>
+      <form class="sidebar-item">
+        <div class="sidebar-title"> General Information</div>
+
+        <label>Full Name</label>
+        <input type="text" />
+
+        <label>Phone</label>
+        <input type="text" />
+
+        <label>Address</label>
+        <input type="text" />
+      </form>
+
+      <form class="sidebar-item">
+        <div class="sidebar-title">
+          Education <button> v</button>
+        </div>
+      </form>
+
+      <form class="sidebar-item">
+        <div class="sidebar-title">
+          Experience
+          <button> v</button>
+        </div>
+      </form>
+
+      <form class="sidebar-item">
+        <div class="sidebar-title">
+          Skills
+          <button> v</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 function App() {
