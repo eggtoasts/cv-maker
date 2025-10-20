@@ -5,24 +5,41 @@ import "./App.css";
 
 function MainContent() {
   const [name, setName] = useState(" ");
+  const [phone, setPhone] = useState(" ");
+  const [address, setAddress] = useState(" ");
+  const [location, setLocation] = useState(" ");
   return (
     <>
       <div class="main-content">
-        <Sidebar name={name} setName={setName} />
-        <ResumeSection name={name} />
+        <Sidebar
+          name={name}
+          setName={setName}
+          phone={phone}
+          setPhone={setPhone}
+          address={address}
+          setAddress={setAddress}
+          location={location}
+          setLocation={setLocation}
+        />
+        <ResumeSection
+          name={name}
+          phone={phone}
+          address={address}
+          location={location}
+        />
       </div>
     </>
   );
 }
 
-function GeneralInfo({ name }) {
+function GeneralInfo({ name, phone, address, location }) {
   return (
     <div class="general section">
       <h1>{name}</h1>
       <div class="section-sub-info gen">
-        <h3>PhoneNumber</h3>
-        <h3>Email</h3>
-        <h3>Address</h3>
+        <h3>{phone}</h3>
+        <h3>{address}</h3>
+        <h3>{location}</h3>
       </div>
     </div>
   );
@@ -104,10 +121,15 @@ function SkillInfo() {
   );
 }
 
-function Resume({ name }) {
+function Resume({ name, phone, address, location }) {
   return (
     <div class="resume">
-      <GeneralInfo name={name} />
+      <GeneralInfo
+        name={name}
+        phone={phone}
+        address={address}
+        location={location}
+      />
       <SchoolInfo />
       <WorkInfo />
       <SkillInfo />
@@ -115,15 +137,24 @@ function Resume({ name }) {
   );
 }
 
-function ResumeSection({ name }) {
+function ResumeSection({ name, phone, address, location }) {
   return (
     <div class="resume-section">
-      <Resume name={name} />
+      <Resume name={name} phone={phone} address={address} location={location} />
     </div>
   );
 }
 
-function Sidebar({ name, setName }) {
+function Sidebar({
+  name,
+  setName,
+  phone,
+  setPhone,
+  address,
+  setAddress,
+  location,
+  setLocation,
+}) {
   return (
     <div class="sidebar">
       <div class="options">
@@ -141,10 +172,25 @@ function Sidebar({ name, setName }) {
         />
 
         <label>Phone</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+
+        <label>Email Address</label>
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
 
         <label>Address</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
       </form>
 
       <form class="sidebar-item">
