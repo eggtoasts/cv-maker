@@ -6,9 +6,7 @@ function GeneralInfo({ generalInfo }) {
     <div className="general section">
       <h1>{name}</h1>
       <div className="section-sub-info gen">
-        {gen.map(
-          (g, i) => g && <h3 key={i}>{g}</h3> // ✅ added key
-        )}
+        {gen.map((g, i) => g && <h3 key={i}>{g}</h3>)}
       </div>
     </div>
   );

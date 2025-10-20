@@ -39,19 +39,46 @@ function Sidebar({ generalInfo, updateGeneralInfo }) {
 
       <form className="sidebar-item">
         <div className="sidebar-title">
-          Education <button>v</button>
+          Education <button type="button">+</button>
+        </div>
+
+        <div className="school-form">
+          <div className="input-field">
+            <label>University Name</label>
+            <input type="text" />
+          </div>
+
+          <div className="input-field">
+            <label>Degree</label>
+            <input type="text" />
+          </div>
+
+          <div className="input-field">
+            <label>Field of Study</label>
+            <input type="text" />
+          </div>
+
+          <div className="input-field">
+            <label>Start Date</label>
+            <input type="month" />
+
+            <div className="input-field">
+              <label>End Date</label>
+              <input type="month" />
+            </div>
+          </div>
         </div>
       </form>
 
       <form className="sidebar-item">
         <div className="sidebar-title">
-          Experience <button>v</button>
+          Experience <button type="button">+</button>
         </div>
       </form>
 
       <form className="sidebar-item">
         <div className="sidebar-title">
-          Skills <button>v</button>
+          Skills <button type="button">+</button>
         </div>
       </form>
     </div>
