@@ -3,22 +3,22 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-//Make this a grid
 function MainContent() {
+  const [name, setName] = useState(" ");
   return (
     <>
       <div class="main-content">
-        <Sidebar />
-        <ResumeSection />
+        <Sidebar name={name} setName={setName} />
+        <ResumeSection name={name} />
       </div>
     </>
   );
 }
 
-function GeneralInfo() {
+function GeneralInfo({ name }) {
   return (
     <div class="general section">
-      <h1>Full Name</h1>
+      <h1>{name}</h1>
       <div class="section-sub-info gen">
         <h3>PhoneNumber</h3>
         <h3>Email</h3>
@@ -104,10 +104,10 @@ function SkillInfo() {
   );
 }
 
-function Resume() {
+function Resume({ name }) {
   return (
     <div class="resume">
-      <GeneralInfo />
+      <GeneralInfo name={name} />
       <SchoolInfo />
       <WorkInfo />
       <SkillInfo />
@@ -115,15 +115,15 @@ function Resume() {
   );
 }
 
-function ResumeSection() {
+function ResumeSection({ name }) {
   return (
     <div class="resume-section">
-      <Resume />
+      <Resume name={name} />
     </div>
   );
 }
 
-function Sidebar() {
+function Sidebar({ name, setName }) {
   return (
     <div class="sidebar">
       <div class="options">
@@ -134,7 +134,11 @@ function Sidebar() {
         <div class="sidebar-title"> General Information</div>
 
         <label>Full Name</label>
-        <input type="text" />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <label>Phone</label>
         <input type="text" />
