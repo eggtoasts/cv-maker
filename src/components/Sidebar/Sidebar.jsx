@@ -1,7 +1,7 @@
 import InputField from "./InputField";
 import { useState } from "react";
 
-function EducationForm() {
+function EducationForm({ updateEduData, eduData }) {
   return (
     <div className="school-form">
       <div className="input-field">
@@ -34,7 +34,9 @@ function EducationForm() {
           <button
             className="submit-school button"
             type="button"
-            onClick={() => console.log("..")}
+            onClick={() => {
+              updateEduData();
+            }}
           >
             Submit
           </button>
@@ -44,7 +46,7 @@ function EducationForm() {
   );
 }
 
-function Sidebar({ generalInfo, updateGeneralInfo }) {
+function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
   const [newForm, setNewForm] = useState("");
   return (
     <div className="sidebar">
@@ -89,7 +91,9 @@ function Sidebar({ generalInfo, updateGeneralInfo }) {
             +
           </button>
         </div>
-        {newForm === "edu" && <EducationForm />}
+        {newForm === "edu" && (
+          <EducationForm updateEduData={updateEduData} eduData={eduData} />
+        )}
       </form>
 
       <form className="sidebar-item">

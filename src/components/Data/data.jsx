@@ -5,6 +5,7 @@ export const edu = [
     field: "CS",
     startDate: "11-1-02",
     endDate: "11-1-02",
+    id: 1,
   },
 ];
 export const experience = [];

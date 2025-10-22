@@ -12,7 +12,6 @@ function MainContent() {
   });
 
   const [eduData, setEduData] = useState(edu);
-  console.log(eduData);
 
   const updateGeneralInfo = (key, value) => {
     setGeneralInfo((prev) => ({
@@ -21,11 +20,28 @@ function MainContent() {
     }));
   };
 
+  const updateEduData = () => {
+    let newEduData = [...eduData];
+    newEduData.push({
+      universityName: "test",
+      degree: "test",
+      field: "CS",
+      startDate: "test",
+      endDate: "test",
+      id: crypto.randomUUID(),
+    });
+
+    setEduData(newEduData);
+    console.log(eduData);
+  };
+
   return (
     <div className="main-content">
       <Sidebar
         generalInfo={generalInfo}
         updateGeneralInfo={updateGeneralInfo}
+        eduData={eduData}
+        updateEduData={updateEduData}
       />
       <ResumeSection generalInfo={generalInfo} />
     </div>
