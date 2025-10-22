@@ -1,22 +1,18 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import ResumeSection from "./Resume/ResumeSection";
-import { edu, experience, skills } from "./Data/data";
+import { edu, experience, skills, gen } from "./Data/data";
 
 function MainContent() {
-  const [generalInfo, setGeneralInfo] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    address: "",
-  });
+  const [generalInfo, setGeneralInfo] = useState(gen);
 
   const [eduData, setEduData] = useState(edu);
 
-  const updateGeneralInfo = (key, value) => {
+  const updateGeneralInfo = (e) => {
+    const { name, value } = e.target;
     setGeneralInfo((prev) => ({
       ...prev,
-      [key]: value,
+      [name]: value,
     }));
   };
 

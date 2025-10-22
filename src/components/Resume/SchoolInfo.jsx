@@ -6,7 +6,7 @@ function SchoolInfo({ eduData }) {
       <div className="section-title school">Education</div>
 
       {eduData.map((itemInfo) => {
-        return <SchoolCard itemInfo={itemInfo} />;
+        return <SchoolCard itemInfo={itemInfo} key={itemInfo.id} />;
       })}
     </div>
   );
