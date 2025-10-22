@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import ResumeSection from "./Resume/ResumeSection";
+import { edu, experience, skills } from "./Data/data";
 
 function MainContent() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -9,6 +10,9 @@ function MainContent() {
     email: "",
     address: "",
   });
+
+  const [eduData, setEduData] = useState(edu);
+  console.log(eduData);
 
   const updateGeneralInfo = (key, value) => {
     setGeneralInfo((prev) => ({

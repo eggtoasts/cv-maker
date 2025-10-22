@@ -1,6 +1,51 @@
 import InputField from "./InputField";
+import { useState } from "react";
+
+function EducationForm() {
+  return (
+    <div className="school-form">
+      <div className="input-field">
+        <label>University Name</label>
+        <input type="text" />
+      </div>
+
+      <div className="input-field">
+        <label>Degree</label>
+        <input type="text" />
+      </div>
+
+      <div className="input-field">
+        <label>Field of Study</label>
+        <input type="text" />
+      </div>
+
+      <div className="input-field">
+        <label>Start Date</label>
+        <input type="month" />
+
+        <div className="input-field">
+          <label>End Date</label>
+          <input type="month" />
+        </div>
+        <div className="button-wrapper">
+          <button className="submit-school cancel" type="button">
+            Cancel
+          </button>
+          <button
+            className="submit-school button"
+            type="button"
+            onClick={() => console.log("..")}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Sidebar({ generalInfo, updateGeneralInfo }) {
+  const [newForm, setNewForm] = useState("");
   return (
     <div className="sidebar">
       <div className="options">
@@ -39,41 +84,12 @@ function Sidebar({ generalInfo, updateGeneralInfo }) {
 
       <form className="sidebar-item">
         <div className="sidebar-title">
-          Education <button type="button">+</button>
+          Experience{" "}
+          <button type="button" onClick={() => setNewForm("edu")}>
+            +
+          </button>
         </div>
-
-        <div className="school-form">
-          <div className="input-field">
-            <label>University Name</label>
-            <input type="text" />
-          </div>
-
-          <div className="input-field">
-            <label>Degree</label>
-            <input type="text" />
-          </div>
-
-          <div className="input-field">
-            <label>Field of Study</label>
-            <input type="text" />
-          </div>
-
-          <div className="input-field">
-            <label>Start Date</label>
-            <input type="month" />
-
-            <div className="input-field">
-              <label>End Date</label>
-              <input type="month" />
-            </div>
-          </div>
-        </div>
-      </form>
-
-      <form className="sidebar-item">
-        <div className="sidebar-title">
-          Experience <button type="button">+</button>
-        </div>
+        {newForm === "edu" && <EducationForm />}
       </form>
 
       <form className="sidebar-item">
