@@ -17,11 +17,13 @@ function MainContent() {
   };
 
   const updateEduData = (formData) => {
-    const { universityName, degree, field, startDate, endDate } = formData;
+    const { universityName, degree, location, field, startDate, endDate } =
+      formData;
     let newEduData = [...eduData];
     newEduData.push({
       universityName: universityName,
       degree: degree,
+      location: location,
       field: field,
       startDate: startDate,
       endDate: endDate,

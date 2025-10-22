@@ -1,11 +1,77 @@
 import InputField from "./InputField";
 import { useState } from "react";
 
+function EducationSection({ updateEduData, eduData, setForm, newForm }) {
+  function EduItem({ item }) {
+    return (
+      <div className="edu-item">
+        <div className="title">{item.universityName}</div>
+        <div className="description">
+          {item.startDate} - {item.endDate}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form className="sidebar-item">
+      <div className="sidebar-title">
+        Education
+        <button type="button" onClick={() => setForm("edu")}>
+          +
+        </button>
+      </div>
+      {newForm === "edu" && (
+        <EducationForm updateEduData={updateEduData} eduData={eduData} />
+      )}
+
+      {eduData.map((item) => {
+        return <EduItem item={item} />;
+      })}
+    </form>
+  );
+}
+
+function GeneralSection({ generalInfo, updateGeneralInfo }) {
+  return (
+    <form className="sidebar-item">
+      <div className="sidebar-title"> General Information</div>
+
+      <InputField
+        label="Full Name"
+        name="name"
+        generalInfo={generalInfo}
+        updateGeneralInfo={updateGeneralInfo}
+      />
+      <InputField
+        label="Phone"
+        name="phone"
+        generalInfo={generalInfo}
+        updateGeneralInfo={updateGeneralInfo}
+      />
+
+      <InputField
+        label="Email Address"
+        name="email"
+        generalInfo={generalInfo}
+        updateGeneralInfo={updateGeneralInfo}
+      />
+      <InputField
+        label="Address"
+        name="address"
+        generalInfo={generalInfo}
+        updateGeneralInfo={updateGeneralInfo}
+      />
+    </form>
+  );
+}
+
 function EducationForm({ updateEduData }) {
   const [formData, setFormData] = useState({
     universityName: "",
     degree: "",
     field: "",
+    location: "",
     startDate: "",
     endDate: "",
     id: "",
@@ -41,6 +107,13 @@ function EducationForm({ updateEduData }) {
         label="Field of Study"
         name="field"
         generalInfo={formData.field}
+        updateGeneralInfo={changeFormData}
+      />
+
+      <InputField
+        label="Location"
+        name="location"
+        generalInfo={formData.location}
         updateGeneralInfo={changeFormData}
       />
 
@@ -87,6 +160,7 @@ function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
     }
     setNewForm(type);
   };
+
   return (
     <div className="sidebar">
       <div className="options">
@@ -94,57 +168,17 @@ function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
         <button className="settings"></button>
       </div>
 
-      <form className="sidebar-item">
-        <div className="sidebar-title"> General Information</div>
+      <GeneralSection
+        generalInfo={generalInfo}
+        updateGeneralInfo={updateGeneralInfo}
+      />
 
-        <InputField
-          label="Full Name"
-          name="name"
-          generalInfo={generalInfo}
-          updateGeneralInfo={updateGeneralInfo}
-        />
-        <InputField
-          label="Phone"
-          name="phone"
-          generalInfo={generalInfo}
-          updateGeneralInfo={updateGeneralInfo}
-        />
-        <InputField
-          label="Email Address"
-          name="email"
-          generalInfo={generalInfo}
-          updateGeneralInfo={updateGeneralInfo}
-        />
-        <InputField
-          label="Address"
-          name="address"
-          generalInfo={generalInfo}
-          updateGeneralInfo={updateGeneralInfo}
-        />
-      </form>
-
-      <form className="sidebar-item">
-        <div className="sidebar-title">
-          Education
-          <button type="button" onClick={() => setForm("edu")}>
-            +
-          </button>
-        </div>
-        {newForm === "edu" && (
-          <EducationForm updateEduData={updateEduData} eduData={eduData} />
-        )}
-
-        {eduData.map((item) => {
-          return (
-            <div className="edu-item">
-              <div className="title">{item.universityName}</div>
-              <div className="description">
-                {item.startDate} - {item.endDate}
-              </div>
-            </div>
-          );
-        })}
-      </form>
+      <EducationSection
+        updateEduData={updateEduData}
+        eduData={eduData}
+        setForm={setForm}
+        newForm={newForm}
+      />
 
       <form className="sidebar-item">
         <div className="sidebar-title">
