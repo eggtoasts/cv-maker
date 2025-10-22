@@ -3,6 +3,13 @@
   padding: 0px;
 }
 
+:root {
+  --title-color: #435bd6;
+  --gen-color: #6366f1;
+  --resume-color: #e0e7ff;
+  --darker-color: #3730a3;
+}
+
 body {
   height: 100%;
   width: 100%;
@@ -27,9 +34,6 @@ body {
 }
 
 .resume {
-  --gen-color: #becccc97;
-  --resume-color: #becccc4e;
-
   height: 800px;
   width: 600px;
   border: 1px solid black;
@@ -47,6 +51,11 @@ body {
   margin-top: 10px;
 }
 
+h3 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
 /* Gen */
 
 .general {
@@ -54,6 +63,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--gen-color);
+  margin-bottom: 25px;
+  color: white;
 }
 
 /* Card */
@@ -61,12 +72,15 @@ body {
 .card,
 .skills-container {
   align-self: center;
-  width: 90%;
+  width: 85%;
 }
 
 .section-title {
-  text-align: center;
-  background-color: var(--resume-color);
+  color: var(--title-color);
+  font-size: 20px;
+  align-self: center;
+  width: 90%;
+  border-bottom: 3px solid var(--resume-color);
   font-weight: 500;
   padding: 2px 0px;
 }
@@ -95,6 +109,30 @@ body {
   font-style: italic;
 }
 
+.button-wrapper {
+  margin-left: auto;
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.cancel,
+.submit {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.submit {
+  background-color: var(--title-color);
+  color: white;
+}
+
+.cancel {
+  color: var(--title-color);
+}
+
 /* Work */
 
 .bullet-item::before {
@@ -114,6 +152,7 @@ body {
   background-color: var(--resume-color);
   border-radius: 20px;
   padding: 4px;
+  color: var(--darker-color);
 }
 
 /* Sidebar */

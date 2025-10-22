@@ -76,7 +76,7 @@ function EducationForm({ updateEduData, eduData }) {
             Cancel
           </button>
           <button
-            className="submit-school button"
+            className="submit-school submit"
             type="button"
             onClick={() => {
               updateEduData(formData);
@@ -137,7 +137,7 @@ function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
 
       <form className="sidebar-item">
         <div className="sidebar-title">
-          Experience{" "}
+          Education
           <button type="button" onClick={() => setForm("edu")}>
             +
           </button>
