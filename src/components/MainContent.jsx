@@ -16,6 +16,29 @@ function MainContent() {
     }));
   };
 
+  const editEduData = (formData, item) => {
+    const { universityName, degree, location, field, startDate, endDate, id } =
+      formData;
+
+    const currid = item.id;
+
+    const newItem = {
+      universityName: universityName,
+      degree: degree,
+      location: location,
+      field: field,
+      startDate: startDate,
+      endDate: endDate,
+      id: id,
+    };
+
+    let newEduData = [...eduData];
+    newEduData = newEduData.map((item) =>
+      item.id === currid ? newItem : item
+    );
+    setEduData(newEduData);
+  };
+
   const updateEduData = (formData) => {
     const { universityName, degree, location, field, startDate, endDate } =
       formData;
@@ -41,6 +64,7 @@ function MainContent() {
         updateGeneralInfo={updateGeneralInfo}
         eduData={eduData}
         updateEduData={updateEduData}
+        editEduData={editEduData}
       />
       <ResumeSection generalInfo={generalInfo} eduData={eduData} />
     </div>

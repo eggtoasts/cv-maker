@@ -1,10 +1,22 @@
 import InputField from "./InputField";
 import { useState } from "react";
 
-function EducationSection({ updateEduData, eduData, setForm, newForm }) {
+function EducationSection({
+  updateEduData,
+  eduData,
+  setForm,
+  newForm,
+  currentEditingId,
+  changeCurrentEditId,
+  editEduData,
+}) {
   function EduItem({ item }) {
     return (
-      <div className="edu-item">
+      <div
+        className="edu-item"
+        key={item.id}
+        onClick={(e) => changeCurrentEditId(item.id)}
+      >
         <div className="title">{item.universityName}</div>
         <div className="description">
           {item.startDate} - {item.endDate}
@@ -22,11 +34,25 @@ function EducationSection({ updateEduData, eduData, setForm, newForm }) {
         </button>
       </div>
       {newForm === "edu" && (
-        <EducationForm updateEduData={updateEduData} eduData={eduData} />
+        <EducationForm
+          updateEduData={updateEduData}
+          eduData={eduData}
+          setForm={setForm}
+        />
       )}
 
       {eduData.map((item) => {
-        return <EduItem item={item} />;
+        if (currentEditingId === item.id) {
+          return (
+            <EditEducationForm
+              item={item}
+              editEduData={editEduData}
+              changeCurrentEditId={changeCurrentEditId}
+            />
+          );
+        } else {
+          return <EduItem item={item} />;
+        }
       })}
     </form>
   );
@@ -66,7 +92,91 @@ function GeneralSection({ generalInfo, updateGeneralInfo }) {
   );
 }
 
-function EducationForm({ updateEduData }) {
+function EditEducationForm({ item, editEduData, changeCurrentEditId }) {
+  const [formData, setFormData] = useState(item);
+
+  const changeFormData = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    return;
+  };
+
+  return (
+    <div className="school-form">
+      <InputField
+        label="University Name"
+        name="universityName"
+        generalInfo={formData}
+        updateGeneralInfo={changeFormData}
+      />
+
+      <InputField
+        label="Degree"
+        name="degree"
+        generalInfo={formData}
+        updateGeneralInfo={changeFormData}
+      />
+
+      <InputField
+        label="Field of Study"
+        name="field"
+        generalInfo={formData}
+        updateGeneralInfo={changeFormData}
+      />
+
+      <InputField
+        label="Location"
+        name="location"
+        generalInfo={formData}
+        updateGeneralInfo={changeFormData}
+      />
+
+      <InputField
+        label="Start Date"
+        name="startDate"
+        generalInfo={formData}
+        updateGeneralInfo={changeFormData}
+        type="month"
+      />
+
+      <InputField
+        label="End Date"
+        name="endDate"
+        generalInfo={formData}
+        updateGeneralInfo={changeFormData}
+        type="month"
+      />
+
+      <div className="button-wrapper">
+        <button
+          className="submit-school cancel"
+          type="button"
+          onClick={() => {
+            changeCurrentEditId("null");
+          }}
+        >
+          Cancel
+        </button>
+        <button
+          className="submit-school submit"
+          type="button"
+          onClick={() => {
+            editEduData(formData, item);
+            changeCurrentEditId("null");
+          }}
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function EducationForm({ updateEduData, setForm }) {
   const [formData, setFormData] = useState({
     universityName: "",
     degree: "",
@@ -92,35 +202,35 @@ function EducationForm({ updateEduData }) {
       <InputField
         label="University Name"
         name="universityName"
-        generalInfo={formData.universityName}
+        generalInfo={formData}
         updateGeneralInfo={changeFormData}
       />
 
       <InputField
         label="Degree"
         name="degree"
-        generalInfo={formData.degree}
+        generalInfo={formData}
         updateGeneralInfo={changeFormData}
       />
 
       <InputField
         label="Field of Study"
         name="field"
-        generalInfo={formData.field}
+        generalInfo={formData}
         updateGeneralInfo={changeFormData}
       />
 
       <InputField
         label="Location"
         name="location"
-        generalInfo={formData.location}
+        generalInfo={formData}
         updateGeneralInfo={changeFormData}
       />
 
       <InputField
         label="Start Date"
         name="startDate"
-        generalInfo={formData.startDate}
+        generalInfo={formData}
         updateGeneralInfo={changeFormData}
         type="month"
       />
@@ -128,13 +238,19 @@ function EducationForm({ updateEduData }) {
       <InputField
         label="End Date"
         name="endDate"
-        generalInfo={formData.endDate}
+        generalInfo={formData}
         updateGeneralInfo={changeFormData}
         type="month"
       />
 
       <div className="button-wrapper">
-        <button className="submit-school cancel" type="button">
+        <button
+          className="submit-school cancel"
+          type="button"
+          onClick={() => {
+            setForm("");
+          }}
+        >
           Cancel
         </button>
         <button
@@ -142,6 +258,7 @@ function EducationForm({ updateEduData }) {
           type="button"
           onClick={() => {
             updateEduData(formData);
+            setForm("");
           }}
         >
           Submit
@@ -151,14 +268,27 @@ function EducationForm({ updateEduData }) {
   );
 }
 
-function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
+function Sidebar({
+  generalInfo,
+  updateGeneralInfo,
+  eduData,
+  updateEduData,
+  editEduData,
+}) {
   const [newForm, setNewForm] = useState("");
+  const [currentEditingId, setCurrentEditingId] = useState(null);
   const setForm = function (type) {
     if (newForm === type) {
       setNewForm("");
       return;
     }
     setNewForm(type);
+  };
+
+  const changeCurrentEditId = function (id) {
+    console.log(id);
+    const currentId = id;
+    setCurrentEditingId(currentId);
   };
 
   return (
@@ -178,6 +308,9 @@ function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
         eduData={eduData}
         setForm={setForm}
         newForm={newForm}
+        currentEditingId={currentEditingId}
+        changeCurrentEditId={changeCurrentEditId}
+        editEduData={editEduData}
       />
 
       <form className="sidebar-item">
