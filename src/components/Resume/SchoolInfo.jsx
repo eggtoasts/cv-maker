@@ -1,11 +1,13 @@
 import SchoolCard from "./SchoolCard";
 
-function SchoolInfo() {
+function SchoolInfo({ eduData }) {
   return (
     <div className="section">
       <div className="section-title school">Education</div>
-      <SchoolCard />
-      <SchoolCard />
+
+      {eduData.map((itemInfo) => {
+        return <SchoolCard itemInfo={itemInfo} />;
+      })}
     </div>
   );
 }

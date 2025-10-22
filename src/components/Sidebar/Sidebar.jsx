@@ -91,6 +91,7 @@ function EducationForm({ updateEduData, eduData }) {
 }
 
 function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
+  const [newForm, setNewForm] = useState("");
   const setForm = function (type) {
     if (newForm === type) {
       setNewForm("");
@@ -98,7 +99,6 @@ function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
     }
     setNewForm(type);
   };
-  const [newForm, setNewForm] = useState("");
   return (
     <div className="sidebar">
       <div className="options">

@@ -44,7 +44,7 @@ function MainContent() {
         eduData={eduData}
         updateEduData={updateEduData}
       />
-      <ResumeSection generalInfo={generalInfo} />
+      <ResumeSection generalInfo={generalInfo} eduData={eduData} />
     </div>
   );
 }
