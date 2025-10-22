@@ -2,30 +2,74 @@ import InputField from "./InputField";
 import { useState } from "react";
 
 function EducationForm({ updateEduData, eduData }) {
+  const [formData, setFormData] = useState({
+    universityName: "",
+    degree: "",
+    field: "",
+    startDate: "",
+    endDate: "",
+    id: "",
+  });
+
+  const changeFormData = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    return;
+  };
+
   return (
     <div className="school-form">
       <div className="input-field">
         <label>University Name</label>
-        <input type="text" />
+        <input
+          type="text"
+          name="universityName"
+          value={formData.universityName}
+          onChange={(e) => changeFormData(e)}
+        />
       </div>
 
       <div className="input-field">
         <label>Degree</label>
-        <input type="text" />
+        <input
+          type="text"
+          name="degree"
+          value={formData.degree}
+          onChange={(e) => changeFormData(e)}
+        />
       </div>
 
       <div className="input-field">
         <label>Field of Study</label>
-        <input type="text" />
+        <input
+          type="text"
+          name="field"
+          value={formData.field}
+          onChange={(e) => changeFormData(e)}
+        />
       </div>
 
       <div className="input-field">
         <label>Start Date</label>
-        <input type="month" />
+        <input
+          type="month"
+          name="startDate"
+          value={formData.startDate}
+          onChange={(e) => changeFormData(e)}
+        />
 
         <div className="input-field">
           <label>End Date</label>
-          <input type="month" />
+          <input
+            type="month"
+            name="endDate"
+            value={formData.endDate}
+            onChange={(e) => changeFormData(e)}
+          />
         </div>
         <div className="button-wrapper">
           <button className="submit-school cancel" type="button">
@@ -35,7 +79,7 @@ function EducationForm({ updateEduData, eduData }) {
             className="submit-school button"
             type="button"
             onClick={() => {
-              updateEduData();
+              updateEduData(formData);
             }}
           >
             Submit
@@ -47,6 +91,13 @@ function EducationForm({ updateEduData, eduData }) {
 }
 
 function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
+  const setForm = function (type) {
+    if (newForm === type) {
+      setNewForm("");
+      return;
+    }
+    setNewForm(type);
+  };
   const [newForm, setNewForm] = useState("");
   return (
     <div className="sidebar">
@@ -87,7 +138,7 @@ function Sidebar({ generalInfo, updateGeneralInfo, eduData, updateEduData }) {
       <form className="sidebar-item">
         <div className="sidebar-title">
           Experience{" "}
-          <button type="button" onClick={() => setNewForm("edu")}>
+          <button type="button" onClick={() => setForm("edu")}>
             +
           </button>
         </div>

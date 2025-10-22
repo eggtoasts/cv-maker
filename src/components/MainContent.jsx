@@ -20,14 +20,15 @@ function MainContent() {
     }));
   };
 
-  const updateEduData = () => {
+  const updateEduData = (formData) => {
+    const { universityName, degree, field, startDate, endDate } = formData;
     let newEduData = [...eduData];
     newEduData.push({
-      universityName: "test",
-      degree: "test",
-      field: "CS",
-      startDate: "test",
-      endDate: "test",
+      universityName: universityName,
+      degree: degree,
+      field: field,
+      startDate: startDate,
+      endDate: endDate,
       id: crypto.randomUUID(),
     });
 
