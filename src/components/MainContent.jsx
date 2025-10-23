@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import ResumeSection from "./Resume/ResumeSection";
-import { education, experience, skills, gen } from "./Data/data";
 import useGeneralInfo from "./Hooks/useGeneralInfo";
 import useEducationData from "./Hooks/useEducationData";
+import useExperienceData from "./Hooks/useExperienceData";
 
 function MainContent() {
   const { generalInfo, updateGeneralInfo } = useGeneralInfo();
@@ -11,63 +11,8 @@ function MainContent() {
   const { eduData, editSpecificEduDataProperty, editEduData, addEduData } =
     useEducationData();
 
-  const [expData, setExpData] = useState(experience);
-
-  const editSpecificExpDataProperty = (e, index) => {
-    const { name, value } = e.target;
-
-    let newExpData = [...expData];
-
-    newExpData[index][name] = value;
-
-    setExpData(newExpData);
-  };
-
-  const editExpData = (formData, index) => {
-    const {
-      position,
-      companyName,
-      location,
-      startDate,
-      endDate,
-      description,
-      id,
-    } = formData;
-
-    console.log(formData);
-
-    const newItem = {
-      position: position,
-      companyName: companyName,
-      location: location,
-      startDate: startDate,
-      endDate: endDate,
-      description: description,
-      id: id,
-    };
-
-    let newExpData = [...expData];
-    newExpData[index] = newItem;
-    setExpData(newExpData);
-  };
-
-  const addExpData = (formData) => {
-    const { position, companyName, location, startDate, endDate, description } =
-      formData;
-    let newExpData = [...expData];
-
-    newExpData.push({
-      position: position,
-      companyName: companyName,
-      location: location,
-      startDate: startDate,
-      endDate: endDate,
-      description: description,
-      id: crypto.randomUUID(),
-    });
-
-    setExpData(newExpData);
-  };
+  const { expData, editExpData, editSpecificExpDataProperty, addExpData } =
+    useExperienceData();
 
   return (
     <div className="main-content">
