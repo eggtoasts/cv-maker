@@ -34,6 +34,7 @@ function EducationSection({
           +
         </button>
       </div>
+
       {newForm === "edu" && (
         <EducationForm
           updateEduData={updateEduData}
@@ -165,7 +166,7 @@ function EditEducationForm({
           type="button"
           onClick={() => {
             editEduData(originalData, index);
-            changeCurrentEditId("null");
+            changeCurrentEditId(null);
           }}
         >
           Cancel
@@ -175,7 +176,7 @@ function EditEducationForm({
           type="button"
           onClick={() => {
             editEduData(item, index);
-            changeCurrentEditId("null");
+            changeCurrentEditId(null);
           }}
         >
           Submit
@@ -287,7 +288,9 @@ function Sidebar({
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
+
   const setForm = function (type) {
+    if (currentEditingId != null) return;
     if (newForm === type) {
       setNewForm("");
       return;
@@ -296,7 +299,7 @@ function Sidebar({
   };
 
   const changeCurrentEditId = function (id) {
-    console.log(id);
+    if (newForm != "") return;
     const currentId = id;
     setCurrentEditingId(currentId);
   };
