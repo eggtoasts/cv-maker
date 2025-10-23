@@ -16,11 +16,19 @@ function MainContent() {
     }));
   };
 
-  const editEduData = (formData, item) => {
+  const editSpecificEduDataProperty = (e, index) => {
+    const { name, value } = e.target;
+
+    const newEduData = [...eduData];
+
+    newEduData[index][name] = value;
+
+    setEduData(newEduData);
+  };
+
+  const editEduData = (formData, index) => {
     const { universityName, degree, location, field, startDate, endDate, id } =
       formData;
-
-    const currid = item.id;
 
     const newItem = {
       universityName: universityName,
@@ -33,9 +41,7 @@ function MainContent() {
     };
 
     let newEduData = [...eduData];
-    newEduData = newEduData.map((item) =>
-      item.id === currid ? newItem : item
-    );
+    newEduData[index] = newItem;
     setEduData(newEduData);
   };
 
@@ -54,7 +60,6 @@ function MainContent() {
     });
 
     setEduData(newEduData);
-    console.log(eduData);
   };
 
   return (
@@ -65,6 +70,7 @@ function MainContent() {
         eduData={eduData}
         updateEduData={updateEduData}
         editEduData={editEduData}
+        editSpecificEduDataProperty={editSpecificEduDataProperty}
       />
       <ResumeSection generalInfo={generalInfo} eduData={eduData} />
     </div>

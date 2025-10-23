@@ -9,6 +9,7 @@ function EducationSection({
   currentEditingId,
   changeCurrentEditId,
   editEduData,
+  editSpecificEduDataProperty,
 }) {
   function EduItem({ item }) {
     return (
@@ -48,6 +49,9 @@ function EducationSection({
               item={item}
               editEduData={editEduData}
               changeCurrentEditId={changeCurrentEditId}
+              eduData={eduData}
+              setEduData={updateEduData}
+              editSpecificEduDataProperty={editSpecificEduDataProperty}
             />
           );
         } else {
@@ -92,63 +96,67 @@ function GeneralSection({ generalInfo, updateGeneralInfo }) {
   );
 }
 
-function EditEducationForm({ item, editEduData, changeCurrentEditId }) {
-  const [formData, setFormData] = useState(item);
+function EditEducationForm({
+  item,
+  editEduData,
+  changeCurrentEditId,
+  eduData,
+  editSpecificEduDataProperty,
+}) {
+  const index = eduData.findIndex((it) => it.id === item.id);
 
-  const changeFormData = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    return;
-  };
+  const [originalData] = useState({ ...item });
 
   return (
     <div className="school-form">
       <InputField
         label="University Name"
         name="universityName"
-        generalInfo={formData}
-        updateGeneralInfo={changeFormData}
+        generalInfo={item}
+        updateGeneralInfo={editSpecificEduDataProperty}
+        index={index}
       />
 
       <InputField
         label="Degree"
         name="degree"
-        generalInfo={formData}
-        updateGeneralInfo={changeFormData}
+        generalInfo={item}
+        updateGeneralInfo={editSpecificEduDataProperty}
+        index={index}
       />
 
       <InputField
         label="Field of Study"
         name="field"
-        generalInfo={formData}
-        updateGeneralInfo={changeFormData}
+        generalInfo={item}
+        updateGeneralInfo={editSpecificEduDataProperty}
+        index={index}
       />
 
       <InputField
         label="Location"
         name="location"
-        generalInfo={formData}
-        updateGeneralInfo={changeFormData}
+        generalInfo={item}
+        updateGeneralInfo={editSpecificEduDataProperty}
+        index={index}
       />
 
       <InputField
         label="Start Date"
         name="startDate"
-        generalInfo={formData}
-        updateGeneralInfo={changeFormData}
+        generalInfo={item}
+        updateGeneralInfo={editSpecificEduDataProperty}
         type="month"
+        index={index}
       />
 
       <InputField
         label="End Date"
         name="endDate"
-        generalInfo={formData}
-        updateGeneralInfo={changeFormData}
+        generalInfo={item}
+        updateGeneralInfo={editSpecificEduDataProperty}
         type="month"
+        index={index}
       />
 
       <div className="button-wrapper">
@@ -156,6 +164,7 @@ function EditEducationForm({ item, editEduData, changeCurrentEditId }) {
           className="submit-school cancel"
           type="button"
           onClick={() => {
+            editEduData(originalData, index);
             changeCurrentEditId("null");
           }}
         >
@@ -165,7 +174,7 @@ function EditEducationForm({ item, editEduData, changeCurrentEditId }) {
           className="submit-school submit"
           type="button"
           onClick={() => {
-            editEduData(formData, item);
+            editEduData(item, index);
             changeCurrentEditId("null");
           }}
         >
@@ -274,6 +283,7 @@ function Sidebar({
   eduData,
   updateEduData,
   editEduData,
+  editSpecificEduDataProperty,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -311,6 +321,7 @@ function Sidebar({
         currentEditingId={currentEditingId}
         changeCurrentEditId={changeCurrentEditId}
         editEduData={editEduData}
+        editSpecificEduDataProperty={editSpecificEduDataProperty}
       />
 
       <form className="sidebar-item">
