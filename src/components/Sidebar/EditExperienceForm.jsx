@@ -67,7 +67,7 @@ function EditExperienceForm({
 
       <div className="button-wrapper">
         <button
-          className="submit-school cancel"
+          className="submit-exp cancel"
           type="button"
           onClick={() => {
             editExpData(originalData, index);
@@ -77,7 +77,7 @@ function EditExperienceForm({
           Cancel
         </button>
         <button
-          className="submit-school submit"
+          className="submit-exp submit"
           type="button"
           onClick={() => {
             editExpData(item, index);

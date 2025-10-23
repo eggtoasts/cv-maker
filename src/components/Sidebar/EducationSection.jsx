@@ -52,7 +52,6 @@ function EducationSection({
               editEduData={editEduData}
               changeCurrentEditId={changeCurrentEditId}
               eduData={eduData}
-              setEduData={addEduData}
               editSpecificEduDataProperty={editSpecificEduDataProperty}
             />
           );

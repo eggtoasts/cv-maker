@@ -14,7 +14,6 @@ function EducationForm({ addEduData, setForm }) {
 
   const changeFormData = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setFormData((prev) => ({
       ...prev,
       [name]: value,

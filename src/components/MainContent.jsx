@@ -85,6 +85,8 @@ function MainContent() {
       id,
     } = formData;
 
+    console.log(formData);
+
     const newItem = {
       position: position,
       companyName: companyName,
@@ -96,7 +98,7 @@ function MainContent() {
     };
 
     let newExpData = [...expData];
-    expData[index] = newItem;
+    newExpData[index] = newItem;
     setExpData(newExpData);
   };
 

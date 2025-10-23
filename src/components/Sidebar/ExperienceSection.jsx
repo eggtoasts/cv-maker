@@ -50,7 +50,6 @@ export default function ExperienceSection({
               editExpData={editExpData}
               changeCurrentEditId={changeCurrentEditId}
               expData={expData}
-              setEduData={addExpData}
               editSpecificExpDataProperty={editSpecificExpDataProperty}
             />
           );

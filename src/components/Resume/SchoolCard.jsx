@@ -1,8 +1,6 @@
 function SchoolCard({ itemInfo }) {
   const { universityName, degree, location, field, startDate, endDate } =
     itemInfo;
-
-  console.log(itemInfo);
   return (
     <div className="card">
       <div className="section-sub-info main">
