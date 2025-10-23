@@ -15,6 +15,16 @@ export default function useSkillsInfo() {
     ]);
   };
 
+  const deleteSkill = (e, index) => {
+    let newSkillData = [...skillsInfo];
+
+    const id = skillsInfo[index].id;
+
+    newSkillData = newSkillData.filter((item) => item.id !== id);
+
+    setSkillsInfo(newSkillData);
+  };
+
   const editSkillName = (e, index) => {
     const { name, value } = e.target;
 
@@ -42,5 +52,6 @@ export default function useSkillsInfo() {
     skillsInfo,
     editSkillName,
     editSkillData,
+    deleteSkill,
   };
 }

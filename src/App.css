@@ -7,7 +7,6 @@
   --title-color: #435bd6;
   --gen-color: #6366f1;
   --resume-color: #e0e7ff;
-  --darker-color: #3730a3;
 }
 
 html,
@@ -162,7 +161,7 @@ h3 {
   background-color: var(--resume-color);
   border-radius: 20px;
   padding: 4px;
-  color: var(--darker-color);
+  color: var(--title-color);
 }
 
 /* Sidebar */

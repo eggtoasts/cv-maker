@@ -24,7 +24,7 @@ export default function SkillsForm({ addSkill, setForm }) {
   return (
     <div className="exp-form">
       <InputField
-        label="Skill"
+        label="Skill Name"
         name="skill"
         generalInfo={formData}
         updateGeneralInfo={changeFormData}

@@ -15,7 +15,7 @@ function MainContent() {
   const { expData, editExpData, editSpecificExpDataProperty, addExpData } =
     useExperienceData();
 
-  const { skillsInfo, addSkill, editSkillName, editSkillData } =
+  const { skillsInfo, addSkill, editSkillName, editSkillData, deleteSkill } =
     useSkillsInfo();
 
   return (
@@ -39,6 +39,7 @@ function MainContent() {
         addSkill={addSkill}
         editSkillName={editSkillName}
         editSkillData={editSkillData}
+        deleteSkill={deleteSkill}
       />
       <ResumeSection
         generalInfo={generalInfo}

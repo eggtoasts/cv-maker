@@ -19,6 +19,7 @@ function Sidebar({
   addSkill,
   editSkillName,
   editSkillData,
+  deleteSkill,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -81,6 +82,7 @@ function Sidebar({
         changeCurrentEditId={changeCurrentEditId}
         editSkillName={editSkillName}
         editSkillData={editSkillData}
+        deleteSkill={deleteSkill}
       />
     </div>
   );

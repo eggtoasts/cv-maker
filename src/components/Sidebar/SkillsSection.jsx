@@ -9,6 +9,7 @@ export default function SkillsSection({
   changeCurrentEditId,
   editSkillName,
   editSkillData,
+  deleteSkill,
 }) {
   function SkillItem({ item }) {
     return (
@@ -43,6 +44,7 @@ export default function SkillsSection({
               editSkillData={editSkillData}
               changeCurrentEditId={changeCurrentEditId}
               skillsInfo={skillsInfo}
+              deleteSkill={deleteSkill}
             />
           );
         } else {

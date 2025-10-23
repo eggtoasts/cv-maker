@@ -8,6 +8,7 @@ function EditSkillsForm({
   editSkillData,
   changeCurrentEditId,
   skillsInfo,
+  deleteSkill,
 }) {
   const index = skillsInfo.findIndex((it) => it.id === item.id);
 
@@ -16,13 +17,21 @@ function EditSkillsForm({
   return (
     <div className="skill-form">
       <InputField
-        label="Skill"
+        label="Skill Name"
         name="skill"
         generalInfo={item}
         updateGeneralInfo={editSkillName}
         index={index}
       />
 
+      <button
+        onClick={() => {
+          deleteSkill(item, index);
+          changeCurrentEditId(null);
+        }}
+      >
+        del
+      </button>
       <div className="button-wrapper">
         <button
           className="submit-skill cancel"
