@@ -17,6 +17,8 @@ function Sidebar({
   editSpecificExpDataProperty,
   skillsInfo,
   addSkill,
+  editSkillName,
+  editSkillData,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -75,6 +77,10 @@ function Sidebar({
         addSkill={addSkill}
         setForm={setForm}
         newForm={newForm}
+        currentEditingId={currentEditingId}
+        changeCurrentEditId={changeCurrentEditId}
+        editSkillName={editSkillName}
+        editSkillData={editSkillData}
       />
     </div>
   );
