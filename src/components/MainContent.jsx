@@ -15,7 +15,7 @@ function MainContent() {
   const { expData, editExpData, editSpecificExpDataProperty, addExpData } =
     useExperienceData();
 
-  const { skillsInfo, updateSkillsInfo } = useSkillsInfo();
+  const { skillsInfo, addSkill } = useSkillsInfo();
 
   return (
     <div className="main-content">
@@ -33,6 +33,9 @@ function MainContent() {
         addExpData={addExpData}
         editExpData={editExpData}
         editSpecificExpDataProperty={editSpecificExpDataProperty}
+        //skills
+        skillsInfo={skillsInfo}
+        addSkill={addSkill}
       />
       <ResumeSection
         generalInfo={generalInfo}

@@ -4,19 +4,12 @@ import { skills } from "../Data/data";
 
 export default function useSkillsInfo() {
   const [skillsInfo, setSkillsInfo] = useState(skills);
-  const updateSkillsInfo = (e) => {
-    const { name, value } = e.target;
-    setSkillsInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
-  const addSkill = (e) => {
+  const addSkill = (formData) => {
     setSkillsInfo((prev) => [
       ...prev,
       {
-        skill: e.value,
+        skill: formData.skill,
         id: crypto.randomUUID(),
       },
     ]);
@@ -24,6 +17,6 @@ export default function useSkillsInfo() {
 
   return {
     skillsInfo,
-    updateSkillsInfo,
+    addSkill,
   };
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import GeneralSection from "./GeneralSection";
 import EducationSection from "./EducationSection";
 import ExperienceSection from "./ExperienceSection";
+import SkillsSection from "./SkillsSection";
 
 function Sidebar({
   generalInfo,
@@ -14,6 +15,8 @@ function Sidebar({
   addExpData,
   editExpData,
   editSpecificExpDataProperty,
+  skillsInfo,
+  addSkill,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -67,11 +70,12 @@ function Sidebar({
         editSpecificExpDataProperty={editSpecificExpDataProperty}
       />
 
-      <form className="sidebar-item">
-        <div className="sidebar-title">
-          Skills <button type="button">+</button>
-        </div>
-      </form>
+      <SkillsSection
+        skillsInfo={skillsInfo}
+        addSkill={addSkill}
+        setForm={setForm}
+        newForm={newForm}
+      />
     </div>
   );
 }
