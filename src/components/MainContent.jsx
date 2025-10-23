@@ -9,11 +9,21 @@ import useSkillsInfo from "./Hooks/useSkillsInfo";
 function MainContent() {
   const { generalInfo, updateGeneralInfo } = useGeneralInfo();
 
-  const { eduData, editSpecificEduDataProperty, editEduData, addEduData } =
-    useEducationData();
+  const {
+    eduData,
+    editSpecificEduDataProperty,
+    editEduData,
+    addEduData,
+    deleteEdu,
+  } = useEducationData();
 
-  const { expData, editExpData, editSpecificExpDataProperty, addExpData } =
-    useExperienceData();
+  const {
+    expData,
+    editExpData,
+    editSpecificExpDataProperty,
+    addExpData,
+    deleteExp,
+  } = useExperienceData();
 
   const { skillsInfo, addSkill, editSkillName, editSkillData, deleteSkill } =
     useSkillsInfo();
@@ -34,6 +44,7 @@ function MainContent() {
         addExpData={addExpData}
         editExpData={editExpData}
         editSpecificExpDataProperty={editSpecificExpDataProperty}
+        deleteExp={deleteExp}
         //skills
         skillsInfo={skillsInfo}
         addSkill={addSkill}

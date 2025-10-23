@@ -14,6 +14,16 @@ export default function useEducationData() {
     setEduData(newEduData);
   };
 
+  const deleteEdu = (item, index) => {
+    let newEduData = [...eduData];
+
+    const id = newEduData[index].id;
+
+    newEduData = newEduData.filter((item) => item.id !== id);
+
+    setEduData(newEduData);
+  };
+
   const editEduData = (formData, index) => {
     const { universityName, degree, location, field, startDate, endDate, id } =
       formData;
@@ -50,5 +60,11 @@ export default function useEducationData() {
     setEduData(newEduData);
   };
 
-  return { eduData, editSpecificEduDataProperty, editEduData, addEduData };
+  return {
+    eduData,
+    editSpecificEduDataProperty,
+    editEduData,
+    addEduData,
+    deleteEdu,
+  };
 }

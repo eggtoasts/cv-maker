@@ -8,6 +8,7 @@ function EditExperienceForm({
   changeCurrentEditId,
   expData,
   editSpecificExpDataProperty,
+  deleteExp,
 }) {
   const index = expData.findIndex((it) => it.id === item.id);
 
@@ -66,6 +67,15 @@ function EditExperienceForm({
       />
 
       <div className="button-wrapper">
+        <button
+          onClick={() => {
+            deleteExp(item, index);
+            changeCurrentEditId(null);
+          }}
+        >
+          del
+        </button>
+
         <button
           className="submit-exp cancel"
           type="button"

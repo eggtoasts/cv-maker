@@ -13,6 +13,16 @@ export default function useExperienceData() {
     setExpData(newExpData);
   };
 
+  const deleteExp = (item, index) => {
+    let newExpData = [...expData];
+
+    const id = newExpData[index].id;
+
+    newExpData = newExpData.filter((item) => item.id !== id);
+
+    setExpData(newExpData);
+  };
+
   const editExpData = (formData, index) => {
     const {
       position,
@@ -64,5 +74,6 @@ export default function useExperienceData() {
     editExpData,
     editSpecificExpDataProperty,
     addExpData,
+    deleteExp,
   };
 }

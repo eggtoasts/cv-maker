@@ -12,6 +12,7 @@ export default function ExperienceSection({
   changeCurrentEditId,
   editExpData,
   editSpecificExpDataProperty,
+  deleteExp,
 }) {
   function ExpItem({ item }) {
     return (
@@ -51,6 +52,7 @@ export default function ExperienceSection({
               changeCurrentEditId={changeCurrentEditId}
               expData={expData}
               editSpecificExpDataProperty={editSpecificExpDataProperty}
+              deleteExp={deleteExp}
             />
           );
         } else {

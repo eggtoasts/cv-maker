@@ -20,6 +20,7 @@ function Sidebar({
   editSkillName,
   editSkillData,
   deleteSkill,
+  deleteExp,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -71,6 +72,7 @@ function Sidebar({
         changeCurrentEditId={changeCurrentEditId}
         editExpData={editExpData}
         editSpecificExpDataProperty={editSpecificExpDataProperty}
+        deleteExp={deleteExp}
       />
 
       <SkillsSection
