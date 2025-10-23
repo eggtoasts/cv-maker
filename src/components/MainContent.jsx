@@ -39,6 +39,7 @@ function MainContent() {
         addEduData={addEduData}
         editEduData={editEduData}
         editSpecificEduDataProperty={editSpecificEduDataProperty}
+        deleteEdu={deleteEdu}
         //experience
         expData={expData}
         addExpData={addExpData}

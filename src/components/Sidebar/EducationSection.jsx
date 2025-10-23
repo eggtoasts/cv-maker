@@ -10,6 +10,7 @@ function EducationSection({
   changeCurrentEditId,
   editEduData,
   editSpecificEduDataProperty,
+  deleteEdu,
 }) {
   function EduItem({ item }) {
     return (
@@ -53,6 +54,7 @@ function EducationSection({
               changeCurrentEditId={changeCurrentEditId}
               eduData={eduData}
               editSpecificEduDataProperty={editSpecificEduDataProperty}
+              deleteEdu={deleteEdu}
             />
           );
         } else {

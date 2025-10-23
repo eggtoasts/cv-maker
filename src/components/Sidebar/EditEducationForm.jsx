@@ -7,6 +7,7 @@ function EditEducationForm({
   changeCurrentEditId,
   eduData,
   editSpecificEduDataProperty,
+  deleteEdu,
 }) {
   const index = eduData.findIndex((it) => it.id === item.id);
 
@@ -65,6 +66,15 @@ function EditEducationForm({
       />
 
       <div className="button-wrapper">
+        <button
+          onClick={() => {
+            deleteEdu(item, index);
+            changeCurrentEditId(null);
+          }}
+        >
+          del
+        </button>
+
         <button
           className="submit-school cancel"
           type="button"
