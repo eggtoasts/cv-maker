@@ -1,12 +1,13 @@
 import SkillItem from "./SkillItem";
 
-function SkillInfo() {
+function SkillInfo({ skillsInfo }) {
   return (
     <div className="section skill">
       <div className="section-title">Skills</div>
       <div className="skills-container">
-        <SkillItem />
-        <SkillItem />
+        {skillsInfo.map((item) => (
+          <SkillItem item={item} />
+        ))}
       </div>
     </div>
   );

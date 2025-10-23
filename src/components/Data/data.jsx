@@ -37,4 +37,10 @@ Collaborated with senior engineers to debug and optimize existing code.`,
     id: 3,
   },
 ];
-export const skills = [];
+export const skills = [
+  { skill: "C/C++", id: 4 },
+  { skill: "React", id: 5 },
+  { skill: "HTML/CSS", id: 6 },
+  { skill: "Javascript", id: 7 },
+  { skill: "Git", id: 8 },
+];

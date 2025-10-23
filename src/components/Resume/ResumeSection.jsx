@@ -1,9 +1,14 @@
 import Resume from "./Resume";
 
-function ResumeSection({ generalInfo, eduData, expData }) {
+function ResumeSection({ generalInfo, eduData, expData, skillsInfo }) {
   return (
     <div className="resume-section">
-      <Resume generalInfo={generalInfo} eduData={eduData} expData={expData} />
+      <Resume
+        generalInfo={generalInfo}
+        eduData={eduData}
+        expData={expData}
+        skillsInfo={skillsInfo}
+      />
     </div>
   );
 }

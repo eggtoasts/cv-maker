@@ -4,6 +4,7 @@ import ResumeSection from "./Resume/ResumeSection";
 import useGeneralInfo from "./Hooks/useGeneralInfo";
 import useEducationData from "./Hooks/useEducationData";
 import useExperienceData from "./Hooks/useExperienceData";
+import useSkillsInfo from "./Hooks/useSkillsInfo";
 
 function MainContent() {
   const { generalInfo, updateGeneralInfo } = useGeneralInfo();
@@ -13,6 +14,8 @@ function MainContent() {
 
   const { expData, editExpData, editSpecificExpDataProperty, addExpData } =
     useExperienceData();
+
+  const { skillsInfo, updateSkillsInfo } = useSkillsInfo();
 
   return (
     <div className="main-content">
@@ -35,6 +38,7 @@ function MainContent() {
         generalInfo={generalInfo}
         eduData={eduData}
         expData={expData}
+        skillsInfo={skillsInfo}
       />
     </div>
   );
