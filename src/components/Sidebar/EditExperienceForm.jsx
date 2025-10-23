@@ -68,12 +68,13 @@ function EditExperienceForm({
 
       <div className="button-wrapper">
         <button
+          className="delete"
           onClick={() => {
             deleteExp(item, index);
             changeCurrentEditId(null);
           }}
         >
-          del
+          Delete
         </button>
 
         <button

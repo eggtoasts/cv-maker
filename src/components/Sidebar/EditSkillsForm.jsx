@@ -26,12 +26,13 @@ function EditSkillsForm({
 
       <div className="button-wrapper">
         <button
+          className="delete"
           onClick={() => {
             deleteSkill(item, index);
             changeCurrentEditId(null);
           }}
         >
-          del
+          Delete
         </button>
         <button
           className="submit-skill cancel"

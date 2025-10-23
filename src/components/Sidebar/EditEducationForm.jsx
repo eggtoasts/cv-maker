@@ -67,12 +67,13 @@ function EditEducationForm({
 
       <div className="button-wrapper">
         <button
+          className="delete"
           onClick={() => {
             deleteEdu(item, index);
             changeCurrentEditId(null);
           }}
         >
-          del
+          Delete
         </button>
 
         <button

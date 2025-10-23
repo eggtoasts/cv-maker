@@ -123,11 +123,16 @@ h3 {
 }
 
 .cancel,
-.submit {
+.submit,
+.delete {
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 10px;
   border: 2px solid transparent;
+}
+
+.delete {
+  color: red;
 }
 
 .submit {
