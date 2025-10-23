@@ -12,6 +12,8 @@ function Sidebar({
   editSpecificEduDataProperty,
   expData,
   addExpData,
+  editExpData,
+  editSpecificExpDataProperty,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -61,6 +63,8 @@ function Sidebar({
         newForm={newForm}
         currentEditingId={currentEditingId}
         changeCurrentEditId={changeCurrentEditId}
+        editExpData={editExpData}
+        editSpecificExpDataProperty={editSpecificExpDataProperty}
       />
 
       <form className="sidebar-item">

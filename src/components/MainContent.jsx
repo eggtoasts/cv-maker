@@ -64,6 +64,42 @@ function MainContent() {
     setEduData(newEduData);
   };
 
+  const editSpecificExpDataProperty = (e, index) => {
+    const { name, value } = e.target;
+
+    let newExpData = [...expData];
+
+    newExpData[index][name] = value;
+
+    setExpData(newExpData);
+  };
+
+  const editExpData = (formData, index) => {
+    const {
+      position,
+      companyName,
+      location,
+      startDate,
+      endDate,
+      description,
+      id,
+    } = formData;
+
+    const newItem = {
+      position: position,
+      companyName: companyName,
+      location: location,
+      startDate: startDate,
+      endDate: endDate,
+      description: description,
+      id: id,
+    };
+
+    let newExpData = [...expData];
+    expData[index] = newItem;
+    setExpData(newExpData);
+  };
+
   const addExpData = (formData) => {
     const { position, companyName, location, startDate, endDate, description } =
       formData;
@@ -96,6 +132,8 @@ function MainContent() {
         //experience
         expData={expData}
         addExpData={addExpData}
+        editExpData={editExpData}
+        editSpecificExpDataProperty={editSpecificExpDataProperty}
       />
       <ResumeSection
         generalInfo={generalInfo}
