@@ -3,12 +3,12 @@ import SchoolInfo from "./SchoolInfo";
 import WorkInfo from "./WorkInfo";
 import SkillInfo from "./SkillInfo";
 
-function Resume({ generalInfo, eduData }) {
+function Resume({ generalInfo, eduData, expData }) {
   return (
     <div className="resume">
       <GeneralInfo generalInfo={generalInfo} />
       <SchoolInfo eduData={eduData} />
-      <WorkInfo />
+      <WorkInfo expData={expData} />
       <SkillInfo />
     </div>
   );

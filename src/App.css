@@ -145,8 +145,10 @@ h3 {
 
 /* Work */
 
-.bullet-item::before {
-  content: "- ";
+.description {
+  width: 90%;
+  margin: 0px 20px;
+  white-space: pre-wrap;
 }
 
 /* Skill */

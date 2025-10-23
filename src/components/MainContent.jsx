@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import ResumeSection from "./Resume/ResumeSection";
-import { edu, experience, skills, gen } from "./Data/data";
+import { education, experience, skills, gen } from "./Data/data";
 
 function MainContent() {
   const [generalInfo, setGeneralInfo] = useState(gen);
 
-  const [eduData, setEduData] = useState(edu);
+  const [eduData, setEduData] = useState(education);
+
+  const [expData, setExpData] = useState(experience);
 
   const updateGeneralInfo = (e) => {
     const { name, value } = e.target;
@@ -45,7 +47,7 @@ function MainContent() {
     setEduData(newEduData);
   };
 
-  const updateEduData = (formData) => {
+  const addEduData = (formData) => {
     const { universityName, degree, location, field, startDate, endDate } =
       formData;
     let newEduData = [...eduData];
@@ -68,11 +70,16 @@ function MainContent() {
         generalInfo={generalInfo}
         updateGeneralInfo={updateGeneralInfo}
         eduData={eduData}
-        updateEduData={updateEduData}
+        addEduData={addEduData}
         editEduData={editEduData}
         editSpecificEduDataProperty={editSpecificEduDataProperty}
+        expData={expData}
       />
-      <ResumeSection generalInfo={generalInfo} eduData={eduData} />
+      <ResumeSection
+        generalInfo={generalInfo}
+        eduData={eduData}
+        expData={expData}
+      />
     </div>
   );
 }

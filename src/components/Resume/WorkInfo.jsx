@@ -1,11 +1,12 @@
 import WorkCard from "./WorkCard";
 
-function WorkInfo() {
+function WorkInfo({ expData }) {
   return (
     <div className="section">
       <div className="section-title">Experience</div>
-      <WorkCard />
-      <WorkCard />
+      {expData.map((item) => (
+        <WorkCard itemInfo={item} />
+      ))}
     </div>
   );
 }

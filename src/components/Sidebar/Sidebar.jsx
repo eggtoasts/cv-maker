@@ -2,7 +2,7 @@ import InputField from "./InputField";
 import { useState } from "react";
 
 function EducationSection({
-  updateEduData,
+  addEduData,
   eduData,
   setForm,
   newForm,
@@ -37,7 +37,7 @@ function EducationSection({
 
       {newForm === "edu" && (
         <EducationForm
-          updateEduData={updateEduData}
+          addEduData={addEduData}
           eduData={eduData}
           setForm={setForm}
         />
@@ -51,7 +51,7 @@ function EducationSection({
               editEduData={editEduData}
               changeCurrentEditId={changeCurrentEditId}
               eduData={eduData}
-              setEduData={updateEduData}
+              setEduData={addEduData}
               editSpecificEduDataProperty={editSpecificEduDataProperty}
             />
           );
@@ -186,7 +186,7 @@ function EditEducationForm({
   );
 }
 
-function EducationForm({ updateEduData, setForm }) {
+function EducationForm({ addEduData, setForm }) {
   const [formData, setFormData] = useState({
     universityName: "",
     degree: "",
@@ -267,7 +267,7 @@ function EducationForm({ updateEduData, setForm }) {
           className="submit-school submit"
           type="button"
           onClick={() => {
-            updateEduData(formData);
+            addEduData(formData);
             setForm("");
           }}
         >
@@ -282,7 +282,7 @@ function Sidebar({
   generalInfo,
   updateGeneralInfo,
   eduData,
-  updateEduData,
+  addEduData,
   editEduData,
   editSpecificEduDataProperty,
 }) {
@@ -317,7 +317,7 @@ function Sidebar({
       />
 
       <EducationSection
-        updateEduData={updateEduData}
+        addEduData={addEduData}
         eduData={eduData}
         setForm={setForm}
         newForm={newForm}
