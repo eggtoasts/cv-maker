@@ -1,4 +1,4 @@
-function InputField({
+function TextField({
   label,
   name,
   generalInfo,
@@ -9,7 +9,7 @@ function InputField({
   return (
     <div className="input-field">
       <label>{label}</label>
-      <input
+      <textarea
         type={type || "text"}
         name={name}
         value={generalInfo[name]}
@@ -22,4 +22,4 @@ function InputField({
   );
 }
 
-export default InputField;
+export default TextField;

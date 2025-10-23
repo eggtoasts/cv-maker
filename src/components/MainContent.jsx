@@ -64,16 +64,38 @@ function MainContent() {
     setEduData(newEduData);
   };
 
+  const addExpData = (formData) => {
+    const { position, companyName, location, startDate, endDate, description } =
+      formData;
+    let newExpData = [...expData];
+
+    newExpData.push({
+      position: position,
+      companyName: companyName,
+      location: location,
+      startDate: startDate,
+      endDate: endDate,
+      description: description,
+      id: crypto.randomUUID(),
+    });
+
+    setExpData(newExpData);
+  };
+
   return (
     <div className="main-content">
       <Sidebar
+        // general
         generalInfo={generalInfo}
         updateGeneralInfo={updateGeneralInfo}
+        // education
         eduData={eduData}
         addEduData={addEduData}
         editEduData={editEduData}
         editSpecificEduDataProperty={editSpecificEduDataProperty}
+        //experience
         expData={expData}
+        addExpData={addExpData}
       />
       <ResumeSection
         generalInfo={generalInfo}

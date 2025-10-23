@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GeneralSection from "./GeneralSection";
 import EducationSection from "./EducationSection";
+import ExperienceSection from "./ExperienceSection";
 
 function Sidebar({
   generalInfo,
@@ -9,6 +10,8 @@ function Sidebar({
   addEduData,
   editEduData,
   editSpecificEduDataProperty,
+  expData,
+  addExpData,
 }) {
   const [newForm, setNewForm] = useState("");
   const [currentEditingId, setCurrentEditingId] = useState(null);
@@ -41,14 +44,23 @@ function Sidebar({
       />
 
       <EducationSection
-        addEduData={addEduData}
         eduData={eduData}
+        addEduData={addEduData}
         setForm={setForm}
         newForm={newForm}
         currentEditingId={currentEditingId}
         changeCurrentEditId={changeCurrentEditId}
         editEduData={editEduData}
         editSpecificEduDataProperty={editSpecificEduDataProperty}
+      />
+
+      <ExperienceSection
+        expData={expData}
+        addExpData={addExpData}
+        setForm={setForm}
+        newForm={newForm}
+        currentEditingId={currentEditingId}
+        changeCurrentEditId={changeCurrentEditId}
       />
 
       <form className="sidebar-item">
