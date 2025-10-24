@@ -5,7 +5,7 @@ import ExperienceForm from "./ExperienceForm";
 import EditExperienceForm from "./EditExperienceForm";
 import Icon from "@mdi/react";
 import { mdiPlus } from "@mdi/js";
-
+import { conv } from "../Data/data";
 export default function ExperienceSection({
   expData,
   addExpData,
@@ -26,7 +26,7 @@ export default function ExperienceSection({
       >
         <div className="title">{item.companyName}</div>
         <div className="description">
-          {item.startDate} - {item.endDate}
+          {conv(item.startDate)} - {conv(item.startDate)}
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ import EducationForm from "./EducationForm";
 import EditEducationForm from "./EditEducationForm";
 import Icon from "@mdi/react";
 import { mdiPlus } from "@mdi/js";
+import { conv } from "../Data/data";
 
 function EducationSection({
   addEduData,
@@ -23,7 +24,7 @@ function EducationSection({
       >
         <div className="title">{item.universityName}</div>
         <div className="description">
-          {item.startDate} - {item.endDate}
+          {conv(item.startDate)} - {conv(item.startDate)}
         </div>
       </div>
     );

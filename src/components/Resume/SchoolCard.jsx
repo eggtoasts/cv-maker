@@ -1,3 +1,4 @@
+import { conv } from "../Data/data";
 function SchoolCard({ itemInfo }) {
   const { universityName, degree, location, field, startDate, endDate } =
     itemInfo;
@@ -13,7 +14,7 @@ function SchoolCard({ itemInfo }) {
           {degree} in {field}
         </div>
         <div className="year-info">
-          {startDate} - {endDate}
+          {conv(startDate)} - {conv(endDate)}
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { conv } from "../Data/data";
 function WorkCard({ itemInfo }) {
   const {
     position,
@@ -17,7 +18,7 @@ function WorkCard({ itemInfo }) {
       <div className="section-sub-info">
         <div className="left-info">{companyName}</div>
         <div className="right-info">
-          {startDate} - {endDate}
+          {conv(startDate)} - {conv(endDate)}
         </div>
       </div>
       <div className="description">{description}</div>
