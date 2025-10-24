@@ -39,6 +39,7 @@ export default function SkillsSection({
         if (currentEditingId === item.id) {
           return (
             <EditSkillsForm
+              key={item.id}
               item={item}
               editSkillName={editSkillName}
               editSkillData={editSkillData}
@@ -48,7 +49,7 @@ export default function SkillsSection({
             />
           );
         } else {
-          return <SkillItem item={item} />;
+          return <SkillItem key={item.id} item={item} />;
         }
       })}
     </form>

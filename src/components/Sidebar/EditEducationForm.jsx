@@ -72,6 +72,7 @@ function EditEducationForm({
             deleteEdu(item, index);
             changeCurrentEditId(null);
           }}
+          type="button"
         >
           Delete
         </button>

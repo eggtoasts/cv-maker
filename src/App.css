@@ -39,9 +39,11 @@ body {
 .resume {
   height: 800px;
   width: 600px;
-  border: 1px solid black;
+  background-color: white;
+  transform: scale(1.05);
+  margin-top: 80px;
 
-  box-shadow: 4px 4px 2px 1px rgba(196, 196, 196, 0.217);
+  box-shadow: 0px 0px 6px 2px rgba(115, 115, 115, 0.527);
 }
 
 .resume > div {
@@ -158,7 +160,7 @@ h3 {
 .skills-container {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
@@ -231,7 +233,7 @@ textarea {
   background-color: #f1f1f1;
   border-radius: 5px;
   border: 1px solid gainsboro;
-  padding: 2px;
+  padding: 5px;
 }
 
 .input-field {

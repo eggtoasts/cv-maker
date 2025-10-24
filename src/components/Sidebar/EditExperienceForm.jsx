@@ -73,6 +73,7 @@ function EditExperienceForm({
             deleteExp(item, index);
             changeCurrentEditId(null);
           }}
+          type="button"
         >
           Delete
         </button>

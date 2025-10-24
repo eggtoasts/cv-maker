@@ -17,6 +17,9 @@ function InputField({
           if (index != undefined) return updateGeneralInfo(e, index);
           return updateGeneralInfo(e);
         }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") e.preventDefault();
+        }}
       />
     </div>
   );

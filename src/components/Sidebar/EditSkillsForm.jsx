@@ -26,6 +26,7 @@ function EditSkillsForm({
 
       <div className="button-wrapper">
         <button
+          type="button"
           className="delete"
           onClick={() => {
             deleteSkill(item, index);
