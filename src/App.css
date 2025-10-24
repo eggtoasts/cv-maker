@@ -153,13 +153,13 @@ button:hover {
 }
 
 .submit {
-  background-color: var(--title-color);
+  background-color: var(--gen-color);
   color: white;
 }
 
 .cancel {
   margin-left: auto;
-  color: var(--title-color);
+  color: var(--gen-color);
 }
 
 /* Work */
