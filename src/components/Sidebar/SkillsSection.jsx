@@ -1,5 +1,8 @@
 import SkillsForm from "./SkillsForm";
 import EditSkillsForm from "./EditSkillsForm";
+import Icon from "@mdi/react";
+import { mdiPlus } from "@mdi/js";
+
 export default function SkillsSection({
   skillsInfo,
   addSkill,
@@ -26,8 +29,12 @@ export default function SkillsSection({
     <form className="sidebar-item">
       <div className="sidebar-title">
         Skills{" "}
-        <button type="button" onClick={() => setForm("skills")}>
-          +
+        <button
+          className="add-button"
+          type="button"
+          onClick={() => setForm("skills")}
+        >
+          <Icon path={mdiPlus} size={1} />
         </button>
       </div>
 

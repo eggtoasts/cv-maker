@@ -1,5 +1,7 @@
 import InputField from "./InputField";
 import { useState } from "react";
+import Icon from "@mdi/react";
+import { mdiTrashCan } from "@mdi/js";
 
 function EditEducationForm({
   item,
@@ -74,7 +76,7 @@ function EditEducationForm({
           }}
           type="button"
         >
-          Delete
+          <Icon path={mdiTrashCan} size={0.8} />
         </button>
 
         <button

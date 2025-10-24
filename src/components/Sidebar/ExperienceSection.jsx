@@ -3,6 +3,9 @@ import InputField from "./InputField";
 import TextField from "./TextField";
 import ExperienceForm from "./ExperienceForm";
 import EditExperienceForm from "./EditExperienceForm";
+import Icon from "@mdi/react";
+import { mdiPlus } from "@mdi/js";
+
 export default function ExperienceSection({
   expData,
   addExpData,
@@ -33,8 +36,12 @@ export default function ExperienceSection({
     <form className="sidebar-item">
       <div className="sidebar-title">
         Experience{" "}
-        <button type="button" onClick={() => setForm("exp")}>
-          +
+        <button
+          className="add-button"
+          type="button"
+          onClick={() => setForm("exp")}
+        >
+          <Icon path={mdiPlus} size={1} />
         </button>
       </div>
 

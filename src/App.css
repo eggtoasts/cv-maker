@@ -4,9 +4,9 @@
 }
 
 :root {
-  --title-color: #435bd6;
-  --gen-color: #6366f1;
-  --resume-color: #e0e7ff;
+  --title-color: #258dd6;
+  --gen-color: #2e7de4;
+  --resume-color: #e0edff;
 }
 
 html,
@@ -134,7 +134,22 @@ h3 {
 }
 
 .delete {
-  color: red;
+  border-radius: 30px;
+  padding: 5px;
+  align-items: center;
+  display: flex;
+
+  color: #7a7a7a;
+  transition: 0.5s ease;
+}
+
+.delete:hover {
+  color: #ea4040;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .submit {
@@ -212,10 +227,6 @@ h3 {
   background-color: rgb(255, 255, 255);
 }
 
-* {
-  transition: all 0.15s ease-out;
-}
-
 label {
   padding: 5px 0px;
 }
@@ -250,4 +261,18 @@ textarea {
 
 .sidebar-title button {
   margin-left: auto;
+}
+
+.add-button {
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* ITEMS */
+
+.exp-item,
+.edu-item {
+  margin-top: 10px;
 }

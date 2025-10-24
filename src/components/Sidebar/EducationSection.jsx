@@ -1,5 +1,7 @@
 import EducationForm from "./EducationForm";
 import EditEducationForm from "./EditEducationForm";
+import Icon from "@mdi/react";
+import { mdiPlus } from "@mdi/js";
 
 function EducationSection({
   addEduData,
@@ -31,8 +33,12 @@ function EducationSection({
     <form className="sidebar-item">
       <div className="sidebar-title">
         Education
-        <button type="button" onClick={() => setForm("edu")}>
-          +
+        <button
+          className="add-button"
+          type="button"
+          onClick={() => setForm("edu")}
+        >
+          <Icon path={mdiPlus} size={1} />
         </button>
       </div>
 

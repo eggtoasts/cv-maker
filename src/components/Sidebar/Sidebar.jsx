@@ -43,10 +43,7 @@ function Sidebar({
 
   return (
     <div className="sidebar">
-      <div className="options">
-        <button className="main"> </button>
-        <button className="settings"></button>
-      </div>
+      <div className="options"></div>
 
       <GeneralSection
         generalInfo={generalInfo}
