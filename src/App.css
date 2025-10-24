@@ -193,11 +193,14 @@ button:hover {
   flex-direction: column;
   gap: 20px;
   margin: 0px 20px;
+  padding-right: 20px;
   margin-top: 50px;
   align-items: center;
 }
 
 .options {
+  font-weight: 700;
+  font-size: 26px;
   position: relative;
   z-index: -1;
   top: -5px;
@@ -275,4 +278,21 @@ textarea {
 .exp-item,
 .edu-item {
   margin-top: 10px;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+  .main-content {
+    grid-template-rows: 2fr;
+    grid-template-columns: 1fr;
+  }
+  .resume-section {
+    grid-column-start: 1 / 1;
+    padding-bottom: 20px;
+  }
+
+  .resume {
+    width: clamp(80%, 300px, 100%);
+  }
 }
