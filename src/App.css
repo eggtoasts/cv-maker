@@ -293,6 +293,15 @@ textarea {
   }
 
   .resume {
-    width: clamp(80%, 300px, 100%);
+    width: clamp(90%, 300px, 100%);
   }
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 4px;
 }
