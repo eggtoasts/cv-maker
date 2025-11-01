@@ -1,4 +1,5 @@
 import { conv } from "../Data/data";
+import { useEffect, useState } from "react";
 function WorkCard({ itemInfo }) {
   const {
     position,
@@ -9,6 +10,8 @@ function WorkCard({ itemInfo }) {
     description,
     id,
   } = itemInfo;
+  const bulletPoints = description.split("\n");
+
   return (
     <div className="card">
       <div className="section-sub-info main">
@@ -21,7 +24,11 @@ function WorkCard({ itemInfo }) {
           {conv(startDate)} - {conv(endDate)}
         </div>
       </div>
-      <div className="description">{description}</div>
+      <div className="description">
+        {bulletPoints.map((item) => {
+          return <div> {item} </div>;
+        })}
+      </div>
     </div>
   );
 }

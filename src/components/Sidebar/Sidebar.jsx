@@ -43,8 +43,6 @@ function Sidebar({
 
   return (
     <div className="sidebar">
-      <div className="options">CV Maker</div>
-
       <GeneralSection
         generalInfo={generalInfo}
         updateGeneralInfo={updateGeneralInfo}

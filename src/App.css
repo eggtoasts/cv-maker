@@ -1,12 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0px;
   padding: 0px;
+  font-family: "Roboto";
 }
 
 :root {
-  --title-color: #258dd6;
-  --gen-color: #2e7de4;
+  --title-color: #2160c6;
+  --gen-color: #2160c6;
   --resume-color: #e0edff;
+  --black: #141414;
+  --lighter-black: #191919;
+  --grey: #727272;
+  --white: #e1e1e1;
 }
 
 html,
@@ -17,6 +23,8 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .main-content {
@@ -37,13 +45,14 @@ body {
 }
 
 .resume {
-  height: 800px;
-  width: 600px;
+  height: 900px;
+  width: 700px;
   background-color: white;
-  transform: scale(1.05);
-  margin-top: 80px;
 
-  box-shadow: 0px 0px 6px 2px rgba(115, 115, 115, 0.527);
+  color: black;
+  box-shadow: 0px 0px 20px 2px rgb(0, 0, 0);
+
+  border-radius: 10px;
 }
 
 .resume > div {
@@ -68,12 +77,14 @@ h3 {
 }
 
 .general {
-  min-height: 100px;
+  min-height: 125px;
   align-items: center;
   justify-content: center;
   background-color: var(--gen-color);
   margin-bottom: 25px;
   color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 /* Card */
@@ -121,7 +132,7 @@ h3 {
 .button-wrapper {
   display: flex;
   gap: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .cancel,
@@ -131,6 +142,8 @@ h3 {
   padding: 5px 10px;
   border-radius: 10px;
   border: 2px solid transparent;
+  font-weight: 450;
+  transition: 0.5s ease;
 }
 
 .delete {
@@ -139,8 +152,9 @@ h3 {
   align-items: center;
   display: flex;
 
+  background-color: transparent;
+
   color: #7a7a7a;
-  transition: 0.5s ease;
 }
 
 .delete:hover {
@@ -150,16 +164,20 @@ h3 {
 
 button:hover {
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 .submit {
   background-color: var(--gen-color);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .cancel {
   margin-left: auto;
   color: var(--gen-color);
+  background-color: var(--resume-color);
+  font-weight: 400;
+  margin-right: 5px;
 }
 
 /* Work */
@@ -180,9 +198,10 @@ button:hover {
 }
 
 .skill-item {
+  margin-top: 2px;
   background-color: var(--resume-color);
   border-radius: 20px;
-  padding: 4px;
+  padding: 4px 12px;
   color: var(--title-color);
 }
 
@@ -194,23 +213,22 @@ button:hover {
   gap: 20px;
   margin: 0px 20px;
   padding-right: 20px;
-  margin-top: 50px;
+  align-items: center;
+  color-scheme: dark;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  margin-left: 10px;
+  padding: 20px;
   align-items: center;
 }
 
-.options {
-  font-weight: 700;
+.page-title {
   font-size: 26px;
-  position: relative;
-  z-index: -1;
-  top: -5px;
-  width: 80%;
 }
-.options button {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
+
 .settings {
   left: 0px;
 }
@@ -223,31 +241,72 @@ button:hover {
   display: flex;
   flex-direction: column;
   padding: 15px;
+  padding-bottom: 20px;
   border-radius: 20px;
-  border: 1px solid gainsboro;
+  color: var(--white);
+  border: 1.5px solid #282828;
 
-  min-width: 200px;
-  background-color: rgb(255, 255, 255);
+  min-width: 300px;
+  background-color: var(--black);
+}
+
+.school-form,
+.skill-form,
+.exp-form {
+  animation: n 0.8s ease;
+}
+
+@keyframes n {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 label {
-  padding: 5px 0px;
+  font-weight: 500;
+  padding: 10px 0px;
 }
 
 input {
   height: 20px;
 }
+
+input::placeholder {
+  color: var(--white);
+}
+
 textarea {
   height: 200px;
   resize: none;
 }
 
+.card > .description {
+  display: list-item;
+  outline: none;
+}
+
+.description div {
+  display: list-item;
+}
+
+input:focus,
+input:hover {
+  border-color: #373737;
+}
+
 input,
 textarea {
-  background-color: #f1f1f1;
+  background-color: var(--lighter-black);
   border-radius: 5px;
-  border: 1px solid gainsboro;
-  padding: 5px;
+  border: 1.5px solid #282828;
+  color: rgb(207, 207, 207);
+  padding: 6px 10px;
+  transition: 0.1s;
+  outline: none;
 }
 
 .input-field {
@@ -256,7 +315,7 @@ textarea {
 }
 
 .sidebar-title {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -267,10 +326,12 @@ textarea {
 }
 
 .add-button {
-  border: none;
+  border-radius: 10px;
+  border: 1.5px solid #282828;
   display: flex;
   align-items: center;
   background-color: transparent;
+  color: var(--white);
 }
 
 /* ITEMS */
@@ -293,7 +354,7 @@ textarea {
   }
 
   .resume {
-    width: clamp(90%, 300px, 100%);
+    width: clamp(90%, 500px, 100%);
   }
 }
 

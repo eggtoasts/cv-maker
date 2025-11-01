@@ -29,37 +29,42 @@ function MainContent() {
     useSkillsInfo();
 
   return (
-    <div className="main-content">
-      <Sidebar
-        // general
-        generalInfo={generalInfo}
-        updateGeneralInfo={updateGeneralInfo}
-        // education
-        eduData={eduData}
-        addEduData={addEduData}
-        editEduData={editEduData}
-        editSpecificEduDataProperty={editSpecificEduDataProperty}
-        deleteEdu={deleteEdu}
-        //experience
-        expData={expData}
-        addExpData={addExpData}
-        editExpData={editExpData}
-        editSpecificExpDataProperty={editSpecificExpDataProperty}
-        deleteExp={deleteExp}
-        //skills
-        skillsInfo={skillsInfo}
-        addSkill={addSkill}
-        editSkillName={editSkillName}
-        editSkillData={editSkillData}
-        deleteSkill={deleteSkill}
-      />
-      <ResumeSection
-        generalInfo={generalInfo}
-        eduData={eduData}
-        expData={expData}
-        skillsInfo={skillsInfo}
-      />
-    </div>
+    <>
+      <div class="nav">
+        <div class="page-title">CV Maker</div>
+      </div>
+      <div className="main-content">
+        <Sidebar
+          // general
+          generalInfo={generalInfo}
+          updateGeneralInfo={updateGeneralInfo}
+          // education
+          eduData={eduData}
+          addEduData={addEduData}
+          editEduData={editEduData}
+          editSpecificEduDataProperty={editSpecificEduDataProperty}
+          deleteEdu={deleteEdu}
+          //experience
+          expData={expData}
+          addExpData={addExpData}
+          editExpData={editExpData}
+          editSpecificExpDataProperty={editSpecificExpDataProperty}
+          deleteExp={deleteExp}
+          //skills
+          skillsInfo={skillsInfo}
+          addSkill={addSkill}
+          editSkillName={editSkillName}
+          editSkillData={editSkillData}
+          deleteSkill={deleteSkill}
+        />
+        <ResumeSection
+          generalInfo={generalInfo}
+          eduData={eduData}
+          expData={expData}
+          skillsInfo={skillsInfo}
+        />
+      </div>
+    </>
   );
 }
 
