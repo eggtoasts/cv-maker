@@ -33,7 +33,9 @@ Collaborated with senior engineers to debug and optimize existing code.`,
     location: "Austin, TX",
     startDate: "2024-02",
     endDate: "2025-01",
-    description: `Designed and deployed backend services using Python, Django, and PostgreSQL, improving API response time`,
+    description: `Designed and deployed backend services using Python, Django, and PostgreSQL, improving API response time
+Automated the process of collecting and displaying API documentation, cutting manual work in half.
+Built a script that tracks code changes across repositories, speeding up developer onboarding by 60%`,
     id: 3,
   },
 ];
@@ -43,6 +45,8 @@ export const skills = [
   { skill: "HTML/CSS", id: 6 },
   { skill: "Javascript", id: 7 },
   { skill: "Git", id: 8 },
+  { skill: "SQL", id: 9 },
+  { skill: "Linux", id: 10 },
 ];
 
 export function conv(str) {

@@ -26,7 +26,7 @@ function WorkCard({ itemInfo }) {
       </div>
       <div className="description">
         {bulletPoints.map((item) => {
-          return <div> {item} </div>;
+          return <div>{item}</div>;
         })}
       </div>
     </div>

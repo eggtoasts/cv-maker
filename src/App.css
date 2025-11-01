@@ -95,6 +95,15 @@ h3 {
   width: 85%;
 }
 
+.description div {
+  display: list-item;
+  margin: 2px 0px;
+}
+
+.section:not(.general) > *:not(.section-title) {
+  margin: 5px 0px;
+}
+
 .section-title {
   color: var(--title-color);
   font-size: 20px;
@@ -282,15 +291,6 @@ input::placeholder {
 textarea {
   height: 200px;
   resize: none;
-}
-
-.card > .description {
-  display: list-item;
-  outline: none;
-}
-
-.description div {
-  display: list-item;
 }
 
 input:focus,
